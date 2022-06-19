@@ -64,9 +64,10 @@ modules:
         sha256: a858e698c7248bbf31e4e60d26bcae83e7af9e1049ee43913e5fe90000d1253e
         x-checker-data:
           type: html
-          url: https://ferdium.org/download/
-          version-pattern: 'Current version: ([\d\.-]+(\-nightly\.\d+))?'
-          url-template: https://github.org.ferdium/ferdium-app/releases/download/v$version/ferdium_${version}_amd64.deb
+          url: https://github.com/ferdium/ferdium-app/releases/latest
+          version-pattern: <a[^>]+>([\d\.]+\-nightly\.\d+)?</a>
+          url-template: https://github.com/ferdium/ferdium-app/releases/download/v$version/ferdium_${version}_amd64.deb
+          sort-matches: false
       - type: file
         only-arches:
           - aarch64
@@ -74,17 +75,19 @@ modules:
         sha256: 7c89c2219d252b71b846f409d3f014d3e26ade1b4930b7e48a7f95dc7949063b
         x-checker-data:
           type: html
-          url: https://ferdium.org/download/
-          version-pattern: 'Current version: ([\d\.-]+(\-nightly\.\d+))?'
-          url-template: https://github.org.ferdium/ferdium-app/releases/download/v$version/ferdium_${version}_arm64.deb
+          url: https://github.com/ferdium/ferdium-app/releases/latest
+          version-pattern: <a[^>]+>([\d\.]+\-nightly\.\d+)?</a>
+          url-template: https://github.com/ferdium/ferdium-app/releases/download/v$version/ferdium_${version}_arm64.deb
+          sort-matches: false
       - type: file
         url: https://github.com/ferdium/ferdium-app/archive/refs/tags/v6.0.0-nightly.66.tar.gz
         sha256: a1bea71d54eb568823c21c07f312437a0b69063b1bfa2384cbf58ea0384fcdcd
         x-checker-data:
           type: html
-          url: https://ferdium.org/download/
-          version-pattern: 'Current version: ([\d\.-]+(\-nightly\.\d+))?'
-          url-template: https://github.org.ferdium/ferdium-app/archive/refs/tags/v$version.tar.gz
+          url: https://github.com/ferdium/ferdium-app/releases/latest
+          version-pattern: <a[^>]+>([\d\.]+\-nightly\.\d+)?</a>
+          url-template: https://github.com/ferdium/ferdium-app/archive/refs/tags/v$version.tar.gz
+          sort-matches: false
       - type: script
         dest-filename: ferdium.sh
         commands:
