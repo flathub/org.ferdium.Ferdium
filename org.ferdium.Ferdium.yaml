@@ -46,22 +46,22 @@ modules:
   - name: ferdium-desktop
     buildsystem: simple
     build-commands:
-    - ar x ferdium_*.deb
-    - rm -f ferdium_*.deb
-    - tar xf data.tar.xz
-    - rm -f control.tar.gz data.tar.xz debian-binary
-    - cp -r usr/* opt/* /app
-    - chmod -R a-s,go+rX,go-w /app/Ferdium
-    - rm -r /app/share/icons/hicolor/1024x1024
-    - desktop-file-edit --set-key=Exec --set-value='ferdium %U' /app/share/applications/ferdium.desktop
-    - install ferdium.sh /app/bin/ferdium
-    - install -Dm644 org.ferdium.Ferdium.metainfo.xml /app/share/metainfo/org.ferdium.Ferdium.metainfo.xml
+      - ar x ferdium_*.deb
+      - rm -f ferdium_*.deb
+      - tar xf data.tar.xz
+      - rm -f control.tar.gz data.tar.xz debian-binary
+      - cp -r usr/* opt/* /app
+      - chmod -R a-s,go+rX,go-w /app/Ferdium
+      - rm -r /app/share/icons/hicolor/1024x1024
+      - desktop-file-edit --set-key=Exec --set-value='ferdium %U' /app/share/applications/ferdium.desktop
+      - install ferdium.sh /app/bin/ferdium
+      - install -Dm644 org.ferdium.Ferdium.metainfo.xml /app/share/metainfo/org.ferdium.Ferdium.metainfo.xml
     sources:
       - type: file
         only-arches:
           - x86_64
-        url: https://github.com/ferdium/ferdium-app/releases/download/v6.0.0-nightly.66/ferdium_6.0.0-nightly.66_amd64.deb
-        sha256: a858e698c7248bbf31e4e60d26bcae83e7af9e1049ee43913e5fe90000d1253e
+        url: https://github.com/ferdium/ferdium-app/releases/download/v6.0.0-nightly.67/ferdium_6.0.0-nightly.67_amd64.deb
+        sha256: 274224feefd9db9b7949e1342df77d5fdc7985328f4b7e79e50ff7941417646a
         x-checker-data:
           type: html
           url: https://github.com/ferdium/ferdium-app/releases/latest
@@ -71,8 +71,8 @@ modules:
       - type: file
         only-arches:
           - aarch64
-        url: https://github.com/ferdium/ferdium-app/releases/download/v6.0.0-nightly.66/ferdium_6.0.0-nightly.66_arm64.deb
-        sha256: 7c89c2219d252b71b846f409d3f014d3e26ade1b4930b7e48a7f95dc7949063b
+        url: https://github.com/ferdium/ferdium-app/releases/download/v6.0.0-nightly.67/ferdium_6.0.0-nightly.67_arm64.deb
+        sha256: 73c8da28c7e33a7567c159178751ab376012fdaa90f2e154fa9f97b1618575a4
         x-checker-data:
           type: html
           url: https://github.com/ferdium/ferdium-app/releases/latest
@@ -80,8 +80,8 @@ modules:
           url-template: https://github.com/ferdium/ferdium-app/releases/download/v$version/ferdium_${version}_arm64.deb
           sort-matches: false
       - type: file
-        url: https://github.com/ferdium/ferdium-app/archive/refs/tags/v6.0.0-nightly.66.tar.gz
-        sha256: a1bea71d54eb568823c21c07f312437a0b69063b1bfa2384cbf58ea0384fcdcd
+        url: https://github.com/ferdium/ferdium-app/archive/refs/tags/v6.0.0-nightly.67.tar.gz
+        sha256: 656402483a59bd922aa88fbeea1803d8dd9fa8fa3b0481d2c5f8b956c3c42002
         x-checker-data:
           type: html
           url: https://github.com/ferdium/ferdium-app/releases/latest
