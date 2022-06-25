@@ -60,31 +60,34 @@ modules:
       - type: file
         only-arches:
           - x86_64
-        url: https://github.com/ferdium/ferdium-app/releases/download/v6.0.0-beta.1/ferdium_6.0.0-beta.1_amd64.deb
-        sha256: 89445c022abae41341ea9c6963e5a56b53b08391432c11bde125900998cc4f50
+        url: https://github.com/ferdium/ferdium-app/releases/download/v6.0.0-beta.2/ferdium_6.0.0-beta.2_amd64.deb
+        sha256: a09081ebbcb4954c83657354cf94640d750158bf02dcc042d41fbf6873cd5b7e
         x-checker-data:
           type: html
-          url: https://ferdium.org/download/
-          version-pattern: 'Current version: ([\d\.-]+(\-beta\.\d+))?'
-          url-template: https://github.org.ferdium/ferdium-app/releases/download/v$version/ferdium_${version}_amd64.deb
+          url: https://github.com/ferdium/ferdium-app/releases/latest
+          version-pattern: <a[^>]+>([\d\.]+\-beta\.\d+)?</a>
+          url-template: https://github.com/ferdium/ferdium-app/releases/download/v$version/ferdium_${version}_amd64.deb
+          sort-matches: false
       - type: file
         only-arches:
           - aarch64
-        url: https://github.com/ferdium/ferdium-app/releases/download/v6.0.0-beta.1/ferdium_6.0.0-beta.1_arm64.deb
-        sha256: 8e72a395d47fa6bb04c5ba2f517ee365f3d38bfe41c6a424653f3411eda7f75d
+        url: https://github.com/ferdium/ferdium-app/releases/download/v6.0.0-beta.2/ferdium_6.0.0-beta.2_arm64.deb
+        sha256: 390413ac123988cc9a43c082972f1b7920647cb98ea0c2d95ba3c762b6008fbc
         x-checker-data:
           type: html
-          url: https://ferdium.org/download/
-          version-pattern: 'Current version: ([\d\.-]+(\-beta\.\d+))?'
-          url-template: https://github.org.ferdium/ferdium-app/releases/download/v$version/ferdium_${version}_arm64.deb
+          url: https://github.com/ferdium/ferdium-app/releases/latest
+          version-pattern: <a[^>]+>([\d\.]+\-beta\.\d+)?</a>
+          url-template: https://github.com/ferdium/ferdium-app/releases/download/v$version/ferdium_${version}_arm64.deb
+          sort-matches: false
       - type: file
-        url: https://github.com/ferdium/ferdium-app/archive/refs/tags/v6.0.0-beta.1.tar.gz
-        sha256: dcb8ecc5e0357bf81551120ca9efe5e95368bcaaa60b22fa4750a4edc5d22e9d
+        url: https://github.com/ferdium/ferdium-app/archive/refs/tags/v6.0.0-beta.2.tar.gz
+        sha256: f4876eb7cc36005b3e514b9f88cdee84398c3dea0ca5edd82b833dfc22aeaf35
         x-checker-data:
           type: html
-          url: https://ferdium.org/download/
-          version-pattern: 'Current version: ([\d\.-]+(\-beta\.\d+))?'
-          url-template: https://github.org.ferdium/ferdium-app/archive/refs/tags/v$version.tar.gz
+          url: https://github.com/ferdium/ferdium-app/releases/latest
+          version-pattern: <a[^>]+>([\d\.]+\-beta\.\d+)?</a>
+          url-template: https://github.com/ferdium/ferdium-app/archive/refs/tags/v$version.tar.gz
+          sort-matches: false
       - type: script
         dest-filename: ferdium.sh
         commands:
