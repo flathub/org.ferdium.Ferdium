@@ -46,8 +46,8 @@ modules:
   - name: ferdium-desktop
     buildsystem: simple
     build-commands:
-      - ar x ferdium_*.deb
-      - rm -f ferdium_*.deb
+      - ar x Ferdium-*.deb
+      - rm -f Ferdium-*.deb
       - tar xf data.tar.xz
       - rm -f control.tar.gz data.tar.xz debian-binary
       - cp -r usr/* opt/* /app
