@@ -63,31 +63,28 @@ modules:
         url: https://github.com/ferdium/ferdium-app/releases/download/v6.0.0-beta.3/Ferdium-linux-6.0.0-beta.3-amd64.deb
         sha256: 18578c47b80a319517c61f337d41272e871e9ed483de4f38f706d8f79d1f9b79
         x-checker-data:
-          type: html
+          type: json
           url: https://github.com/ferdium/ferdium-app/releases/latest
-          version-pattern: <a[^>]+>([\d\.]+\-beta\.\d+)?</a>
-          url-template: https://github.com/ferdium/ferdium-app/releases/download/v$version/Ferdium-linux-${version}-amd64.deb
-          sort-matches: false
+          version-query: ".tag_name | sub(\"^v\"; \"\")"
+          url-query: ".assets[] | select(.name==\"Ferdium-linux-\" + $version + \"-amd64.deb\") | .browser_download_url"
       - type: file
         only-arches:
           - aarch64
         url: https://github.com/ferdium/ferdium-app/releases/download/v6.0.0-beta.3/Ferdium-linux-6.0.0-beta.3-arm64.deb
         sha256: a94f2fb15c7aeb02183c852f83702bd6851de6396436f01d8154296c0a2d62e7
         x-checker-data:
-          type: html
+          type: json
           url: https://github.com/ferdium/ferdium-app/releases/latest
-          version-pattern: <a[^>]+>([\d\.]+\-beta\.\d+)?</a>
-          url-template: https://github.com/ferdium/ferdium-app/releases/download/v$version/Ferdium-linux-${version}-arm64.deb
-          sort-matches: false
+          version-query: ".tag_name | sub(\"^v\"; \"\")"
+          url-query: ".assets[] | select(.name==\"Ferdium-linux-\" + $version + \"-arm64.deb\") | .browser_download_url"
       - type: file
         url: https://github.com/ferdium/ferdium-app/archive/refs/tags/v6.0.0-beta.3.tar.gz
         sha256: 8e12b17df09177268ff43d1d6a55b992adde8d1fc976851ffdb8cbfe45cfd2c0
         x-checker-data:
-          type: html
+          type: json
           url: https://github.com/ferdium/ferdium-app/releases/latest
-          version-pattern: <a[^>]+>([\d\.]+\-beta\.\d+)?</a>
-          url-template: https://github.com/ferdium/ferdium-app/archive/refs/tags/v$version.tar.gz
-          sort-matches: false
+          version-query: ".tag_name | sub(\"^v\"; \"\")"
+          url-query: ".assets[] | select(.name==\"Ferdium-linux-\" + $version + \".tar.gz\") | .browser_download_url"
       - type: script
         dest-filename: ferdium.sh
         commands:
