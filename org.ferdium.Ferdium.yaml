@@ -46,16 +46,16 @@ modules:
   - name: ferdium-desktop
     buildsystem: simple
     build-commands:
-    - ar x ferdium_*.deb
-    - rm -f ferdium_*.deb
-    - tar xf data.tar.xz
-    - rm -f control.tar.gz data.tar.xz debian-binary
-    - cp -r usr/* opt/* /app
-    - chmod -R a-s,go+rX,go-w /app/Ferdium
-    - rm -r /app/share/icons/hicolor/1024x1024
-    - desktop-file-edit --set-key=Exec --set-value='ferdium %U' /app/share/applications/ferdium.desktop
-    - install ferdium.sh /app/bin/ferdium
-    - install -Dm644 org.ferdium.Ferdium.metainfo.xml /app/share/metainfo/org.ferdium.Ferdium.metainfo.xml
+      - ar x Ferdium-*.deb
+      - rm -f Ferdium-*.deb
+      - tar xf data.tar.xz
+      - rm -f control.tar.gz data.tar.xz debian-binary
+      - cp -r usr/* opt/* /app
+      - chmod -R a-s,go+rX,go-w /app/Ferdium
+      - rm -r /app/share/icons/hicolor/1024x1024
+      - desktop-file-edit --set-key=Exec --set-value='ferdium %U' /app/share/applications/ferdium.desktop
+      - install ferdium.sh /app/bin/ferdium
+      - install -Dm644 org.ferdium.Ferdium.metainfo.xml /app/share/metainfo/org.ferdium.Ferdium.metainfo.xml
     sources:
       - type: file
         only-arches:
@@ -63,31 +63,28 @@ modules:
         url: https://github.com/ferdium/ferdium-app/releases/download/v6.0.0-nightly.66/ferdium_6.0.0-nightly.66_amd64.deb
         sha256: a858e698c7248bbf31e4e60d26bcae83e7af9e1049ee43913e5fe90000d1253e
         x-checker-data:
-          type: html
-          url: https://github.com/ferdium/ferdium-app/releases/latest
-          version-pattern: <a[^>]+>([\d\.]+\-nightly\.\d+)?</a>
-          url-template: https://github.com/ferdium/ferdium-app/releases/download/v$version/ferdium_${version}_amd64.deb
-          sort-matches: false
+          type: json
+          url: https://api.github.com/repos/ferdium/ferdium-app/releases
+          version-query: "map(select(.tag_name | contains(\"beta\"))) | .[0].tag_name | sub(\"^v\"; \"\")"
+          url-query: ".[] | select(.tag_name==\"v\" + $version ).assets[] | select(.name==\"Ferdium-linux-\" + $version + \"-amd64.deb\") | .browser_download_url"
       - type: file
         only-arches:
           - aarch64
         url: https://github.com/ferdium/ferdium-app/releases/download/v6.0.0-nightly.66/ferdium_6.0.0-nightly.66_arm64.deb
         sha256: 7c89c2219d252b71b846f409d3f014d3e26ade1b4930b7e48a7f95dc7949063b
         x-checker-data:
-          type: html
-          url: https://github.com/ferdium/ferdium-app/releases/latest
-          version-pattern: <a[^>]+>([\d\.]+\-nightly\.\d+)?</a>
-          url-template: https://github.com/ferdium/ferdium-app/releases/download/v$version/ferdium_${version}_arm64.deb
-          sort-matches: false
+          type: json
+          url: https://api.github.com/repos/ferdium/ferdium-app/releases
+          version-query: "map(select(.tag_name | contains(\"beta\"))) | .[0].tag_name | sub(\"^v\"; \"\")"
+          url-query: ".[] | select(.tag_name==\"v\" + $version ).assets[] | select(.name==\"Ferdium-linux-\" + $version + \"-arm64.deb\") | .browser_download_url"
       - type: file
         url: https://github.com/ferdium/ferdium-app/archive/refs/tags/v6.0.0-nightly.66.tar.gz
         sha256: a1bea71d54eb568823c21c07f312437a0b69063b1bfa2384cbf58ea0384fcdcd
         x-checker-data:
-          type: html
-          url: https://github.com/ferdium/ferdium-app/releases/latest
-          version-pattern: <a[^>]+>([\d\.]+\-nightly\.\d+)?</a>
-          url-template: https://github.com/ferdium/ferdium-app/archive/refs/tags/v$version.tar.gz
-          sort-matches: false
+          type: json
+          url: https://api.github.com/repos/ferdium/ferdium-app/releases
+          version-query: "map(select(.tag_name | contains(\"beta\"))) | .[0].tag_name | sub(\"^v\"; \"\")"
+          url-query: ".[] | select(.tag_name==\"v\" + $version ).assets[] | select(.name==\"Ferdium-linux-\" + $version + \".tar.gz\") | .browser_download_url"
       - type: script
         dest-filename: ferdium.sh
         commands:
