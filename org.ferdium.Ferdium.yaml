@@ -60,31 +60,34 @@ modules:
       - type: file
         only-arches:
           - x86_64
-        url: https://github.com/ferdium/ferdium-app/releases/download/v6.0.0-beta.3/Ferdium-linux-6.0.0-beta.3-amd64.deb
-        sha256: 18578c47b80a319517c61f337d41272e871e9ed483de4f38f706d8f79d1f9b79
+        url: https://github.com/ferdium/ferdium-app/releases/download/v6.0.0/Ferdium-linux-6.0.0-amd64.deb
+        sha256: dfde6b95e3764fc8947a32d18e5e7537e960aad5b01d769ddfa5a9213d411464
         x-checker-data:
           type: json
           url: https://api.github.com/repos/ferdium/ferdium-app/releases/latest
-          version-query: ".tag_name | sub(\"^v\"; \"\")"
-          url-query: ".assets[] | select(.name==\"Ferdium-linux-\" + $version + \"-amd64.deb\") | .browser_download_url"
+          version-query: .tag_name | sub("^v"; "")
+          url-query: .assets[] | select(.name=="Ferdium-linux-" + $version + "-amd64.deb")
+            | .browser_download_url
       - type: file
         only-arches:
           - aarch64
-        url: https://github.com/ferdium/ferdium-app/releases/download/v6.0.0-beta.3/Ferdium-linux-6.0.0-beta.3-arm64.deb
-        sha256: a94f2fb15c7aeb02183c852f83702bd6851de6396436f01d8154296c0a2d62e7
+        url: https://github.com/ferdium/ferdium-app/releases/download/v6.0.0/Ferdium-linux-6.0.0-arm64.deb
+        sha256: cfd92417ddb7be0e5a9a733dc98fafbc657c9883a9bfef20ac159c175c633063
         x-checker-data:
           type: json
           url: https://api.github.com/repos/ferdium/ferdium-app/releases/latest
-          version-query: ".tag_name | sub(\"^v\"; \"\")"
-          url-query: ".assets[] | select(.name==\"Ferdium-linux-\" + $version + \"-arm64.deb\") | .browser_download_url"
+          version-query: .tag_name | sub("^v"; "")
+          url-query: .assets[] | select(.name=="Ferdium-linux-" + $version + "-arm64.deb")
+            | .browser_download_url
       - type: file
-        url: https://github.com/ferdium/ferdium-app/archive/refs/tags/v6.0.0-beta.3.tar.gz
-        sha256: 8e12b17df09177268ff43d1d6a55b992adde8d1fc976851ffdb8cbfe45cfd2c0
+        url: https://github.com/ferdium/ferdium-app/releases/download/v6.0.0/Ferdium-linux-6.0.0.tar.gz
+        sha256: f4930d8123d99cc0f6c3b313fa77ee17c4d5a46e8fc538703864a6b53f020506
         x-checker-data:
           type: json
           url: https://api.github.com/repos/ferdium/ferdium-app/releases/latest
-          version-query: ".tag_name | sub(\"^v\"; \"\")"
-          url-query: ".assets[] | select(.name==\"Ferdium-linux-\" + $version + \".tar.gz\") | .browser_download_url"
+          version-query: .tag_name | sub("^v"; "")
+          url-query: .assets[] | select(.name=="Ferdium-linux-" + $version + ".tar.gz")
+            | .browser_download_url
       - type: script
         dest-filename: ferdium.sh
         commands:

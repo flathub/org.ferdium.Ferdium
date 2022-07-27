@@ -49,9 +49,7 @@
     </screenshot>
   </screenshots>
   <releases>
-    <release version="6.0.0-beta.3" date="2022-07-12"/>
-    <release version="6.0.0b2" date="2022-06-25"/>
-    <release version="6.0.0b1" date="2022-05-27"/>
+    <release version="6.0.0" date="2022-07-21"/>
   </releases>
   <content_rating type="oars-1.1">
     <content_attribute id="social-chat">intense</content_attribute>
