@@ -60,8 +60,8 @@ modules:
       - type: file
         only-arches:
           - x86_64
-        url: https://github.com/ferdium/ferdium-app/releases/download/v6.2.1/Ferdium-linux-6.2.1-amd64.deb
-        sha256: fc198c8942b55caef65f2fbafd1e201db886ccb772ce9bc7f798c96bfd9bd1ad
+        url: https://github.com/ferdium/ferdium-app/releases/download/v6.2.2/Ferdium-linux-6.2.2-amd64.deb
+        sha256: a85ad01793d164131a6c776b6e14c011fb719258b2511502a3b03d325e468f1e
         x-checker-data:
           type: json
           url: https://api.github.com/repos/ferdium/ferdium-app/releases/latest
@@ -71,8 +71,8 @@ modules:
       - type: file
         only-arches:
           - aarch64
-        url: https://github.com/ferdium/ferdium-app/releases/download/v6.2.1/Ferdium-linux-6.2.1-arm64.deb
-        sha256: a3d301d3ce2ac0a3ebe62c4b0c060f2672e528ee05a32979c3f8df3ebbbbf39d
+        url: https://github.com/ferdium/ferdium-app/releases/download/v6.2.2/Ferdium-linux-6.2.2-arm64.deb
+        sha256: 5f38e3de3771fcf5b96514482a0ff31382dd74c1e4340145acf234940a0c983d
         x-checker-data:
           type: json
           url: https://api.github.com/repos/ferdium/ferdium-app/releases/latest
@@ -80,8 +80,8 @@ modules:
           url-query: .assets[] | select(.name=="Ferdium-linux-" + $version + "-arm64.deb")
             | .browser_download_url
       - type: file
-        url: https://github.com/ferdium/ferdium-app/releases/download/v6.2.1/Ferdium-linux-6.2.1.tar.gz
-        sha256: 926525f46ac3fdf4c4dbb93038ee0609fcc4a4323419c5b300c88985209569fe
+        url: https://github.com/ferdium/ferdium-app/releases/download/v6.2.2/Ferdium-linux-6.2.2.tar.gz
+        sha256: 433a4f1943289475220539b4ded95646214eef664f61633318ab315775f56223
         x-checker-data:
           type: json
           url: https://api.github.com/repos/ferdium/ferdium-app/releases/latest
