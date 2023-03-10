@@ -17,6 +17,8 @@ finish-args:
   - --filesystem=home:ro
   - --filesystem=xdg-download
   - --filesystem=/run/.heim_org.h5l.kcm-socket
+  # For correct cursor scaling under Wayland
+  - --env=XCURSOR_PATH=/run/host/user-share/icons:/run/host/share/icons
   - --talk-name=org.freedesktop.Notifications
   - --talk-name=org.kde.StatusNotifierWatcher
   - --own-name=org.kde.*
