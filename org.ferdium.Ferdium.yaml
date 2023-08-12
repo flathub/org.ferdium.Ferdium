@@ -16,6 +16,7 @@ finish-args:
   - --device=all
   - --filesystem=home:ro
   - --filesystem=xdg-download
+  - --filesystem=xdg-config/gtk-3.0:ro
   - --filesystem=/run/.heim_org.h5l.kcm-socket
   # For correct cursor scaling under Wayland
   - --env=XCURSOR_PATH=/run/host/user-share/icons:/run/host/share/icons
