@@ -22,7 +22,6 @@ finish-args:
   - --env=XCURSOR_PATH=/run/host/user-share/icons:/run/host/share/icons
   - --talk-name=org.freedesktop.Notifications
   - --talk-name=org.kde.StatusNotifierWatcher
-  - --own-name=org.kde.*
 modules:
   - name: krb5
     subdir: src
