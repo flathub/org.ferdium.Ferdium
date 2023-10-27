@@ -23,7 +23,6 @@ finish-args:
   - --talk-name=org.freedesktop.Notifications
   - --talk-name=org.kde.StatusNotifierWatcher
   - --talk-name=com.canonical.AppMenu.Registrar
-  - --own-name=org.kde.*
 modules:
   - name: krb5
     subdir: src
