@@ -20,7 +20,7 @@ finish-args:
   - --filesystem=/run/.heim_org.h5l.kcm-socket
   # For correct cursor scaling under Wayland
   - --env=XCURSOR_PATH=/run/host/user-share/icons:/run/host/share/icons
-  - --env=OZONE=x11
+  - --env=ELECTRON_OZONE_PLATFORM_HINT=x11
   - --talk-name=org.freedesktop.Notifications
   - --talk-name=org.kde.StatusNotifierWatcher
   - --talk-name=com.canonical.AppMenu.Registrar
@@ -96,6 +96,6 @@ modules:
         dest-filename: ferdium.sh
         commands:
           - export TMPDIR="$XDG_RUNTIME_DIR/app/$FLATPAK_ID"
-          - exec zypak-wrapper /app/Ferdium/ferdium --ozone-platform-hint=$OZONE "$@"
+          - exec zypak-wrapper /app/Ferdium/ferdium --ozone-platform-hint=$ELECTRON_OZONE_PLATFORM_HINT "$@"
       - type: file
         path: org.ferdium.Ferdium.metainfo.xml
