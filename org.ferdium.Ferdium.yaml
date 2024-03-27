@@ -96,7 +96,7 @@ modules:
         dest-filename: ferdium.sh
         commands:
           - export TMPDIR="$XDG_RUNTIME_DIR/app/$FLATPAK_ID"
-          - exec zypak-wrapper /app/Ferdium/ferdium --ozone-platform-hint=$ELECTRON_OZONE_PLATFORM_HINT
+          - exec zypak-wrapper /app/Ferdium/ferdium
             "$@"
       - type: file
         path: org.ferdium.Ferdium.metainfo.xml
