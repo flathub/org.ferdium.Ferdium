@@ -64,8 +64,8 @@ modules:
       - type: file
         only-arches:
           - x86_64
-        url: https://github.com/ferdium/ferdium-app/releases/download/v6.7.2/Ferdium-linux-6.7.2-amd64.deb
-        sha256: 447f221ea27435ddf09179affd9197e49796b71c89b552d56f4b73ead9e48ebc
+        url: https://github.com/ferdium/ferdium-app/releases/download/v6.7.3/Ferdium-linux-6.7.3-amd64.deb
+        sha256: 4397d431041340a81491a926b220451f653025d93f5d5f30a508bab911e2f745
         x-checker-data:
           type: json
           url: https://api.github.com/repos/ferdium/ferdium-app/releases/latest
@@ -75,8 +75,8 @@ modules:
       - type: file
         only-arches:
           - aarch64
-        url: https://github.com/ferdium/ferdium-app/releases/download/v6.7.2/Ferdium-linux-6.7.2-arm64.deb
-        sha256: d20be469bbb146a90c7b2662392c93e82eefefaefeb82aec5c4f2a934cb49983
+        url: https://github.com/ferdium/ferdium-app/releases/download/v6.7.3/Ferdium-linux-6.7.3-arm64.deb
+        sha256: 6b1148c33d40b73c4ed7e5e49827e51ea8bf09db267aa0fa400c5ea404ccaa6e
         x-checker-data:
           type: json
           url: https://api.github.com/repos/ferdium/ferdium-app/releases/latest
@@ -84,8 +84,8 @@ modules:
           url-query: .assets[] | select(.name=="Ferdium-linux-" + $version + "-arm64.deb")
             | .browser_download_url
       - type: file
-        url: https://github.com/ferdium/ferdium-app/releases/download/v6.7.2/Ferdium-linux-6.7.2.tar.gz
-        sha256: fa0bc2bd1f548bee0d17290d8b3918ed59a56b99f518112e30415908f16519b9
+        url: https://github.com/ferdium/ferdium-app/releases/download/v6.7.3/Ferdium-linux-6.7.3.tar.gz
+        sha256: 5e23334d86cb57637e5dc0830c0d76d8ae90dd98896c7e8d14fa347d502dce75
         x-checker-data:
           type: json
           url: https://api.github.com/repos/ferdium/ferdium-app/releases/latest
@@ -96,7 +96,6 @@ modules:
         dest-filename: ferdium.sh
         commands:
           - export TMPDIR="$XDG_RUNTIME_DIR/app/$FLATPAK_ID"
-          - exec zypak-wrapper /app/Ferdium/ferdium
-            "$@"
+          - exec zypak-wrapper /app/Ferdium/ferdium "$@"
       - type: file
         path: org.ferdium.Ferdium.metainfo.xml
