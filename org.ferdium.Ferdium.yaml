@@ -1,8 +1,8 @@
 app-id: org.ferdium.Ferdium
 base: org.electronjs.Electron2.BaseApp
-base-version: '23.08'
+base-version: '25.08'
 runtime: org.freedesktop.Platform
-runtime-version: '23.08'
+runtime-version: '25.08'
 sdk: org.freedesktop.Sdk
 command: ferdium
 separate-locales: false
@@ -32,13 +32,13 @@ modules:
       - --disable-rpath
     sources:
       - type: archive
-        url: https://kerberos.org/dist/krb5/1.21/krb5-1.21.tar.gz
-        sha256: 69f8aaff85484832df67a4bbacd99b9259bd95aab8c651fbbe65cdc9620ea93b
+        url: https://kerberos.org/dist/krb5/1.22/krb5-1.22.1.tar.gz
+        sha256: 1a8832b8cad923ebbf1394f67e2efcf41e3a49f460285a66e35adec8fa0053af
         x-checker-data:
           type: anitya
           project-id: 13287
           stable-only: true
-          url-template: https://kerberos.org/dist/krb5/$major.$minor/krb5-$major.$minor.tar.gz
+          url-template: https://kerberos.org/dist/krb5/$major.$minor/krb5-$major.$minor.$patch.tar.gz
   - name: krb5-config
     buildsystem: simple
     sources:
